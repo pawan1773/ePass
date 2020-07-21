@@ -141,13 +141,7 @@ function setPreviewFile(adobeDCView, viewerConfig, previewFileConfig) {
 	adobeDCView.previewFile({
 		content: {
             location: {
-				url: previewFileConfig.url,
-				headers: [
-                    {
-                        key: "Access-Control-Allow-Origin",
-                        value: "*",
-                    }
-                ]
+				url: previewFileConfig.url
 			}
         },
 		metaData: {

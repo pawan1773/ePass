@@ -22,4 +22,3 @@ const FILE_CONFIG = [{
 
 /* client id for sdk view */
 const CLIENT_ID = "c7a56ca659ad4725b3ccacd3849b4e54";
-
