@@ -9,7 +9,7 @@
 
 ## Execute
 
-* Run using any local server by replacing with your own clientid(config.js)
+* Run using any local server by replacing with your own clientid and pdf url(config.js)
 * Set your tracking id in index.html gtag script to track events using Google analytics
 
 ## Demo and applications links

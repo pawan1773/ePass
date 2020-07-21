@@ -1,23 +1,23 @@
-var hostname = location.hostname;
-alert(hostname);
+const domain = 'https://' + location.hostname;
+
 const FILE_CONFIG = [{
-	"url": "https://pawan1773.github.io/ePass/pdf/personal.pdf",
+	"url": domain + "/ePass/pdf/personal.pdf",
 	"fileName": "PERSONAL_INFORMATION.pdf",
 	"fileCategory": "PERSONAL INFORMATION"
 }, {
-	"url": "https://pawan1773.github.io/ePass/pdf/vehile.pdf",
+	"url": domain + "/ePass/pdf/vehile.pdf",
 	"fileName": "VEHICLE_DETAILS.pdf",
 	"fileCategory": "VEHICLE DETAILS"
 }, {
-	"url": "https://pawan1773.github.io/ePass/pdf/medical.pdf",
+	"url": domain + "/ePass/pdf/medical.pdf",
 	"fileName": "MEDICAL_CERTIFICATE.pdf",
 	"fileCategory": "MEDICAL CERTIFICATE"
 }, {
-	"url": hostname + "/ePass/pdf/pcc.pdf",
+	"url": domain + "/ePass/pdf/pcc.pdf",
 	"fileName": "POLICE_CLEARANCE.pdf",
 	"fileCategory": "POLICE CLEARANCE"
 }, {
-	"url": "https://pawan1773.github.io/ePass/pdf/declaration.pdf",
+	"url": domain + "/ePass/pdf/declaration.pdf",
 	"fileName": "SELF_DECLARATION.pdf",
 	"fileCategory": "SELF DECLARATION"
 }];
