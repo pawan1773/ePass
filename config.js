@@ -15,7 +15,7 @@ const FILE_CONFIG = [{
 	"fileName": "POLICE_CLEARANCE.pdf",
 	"fileCategory": "POLICE CLEARANCE"
 }, {
-	"url": "https://cors.io/?https://github.com/pawan1773/ePass/blob/master/pdf/samplePdfFromHtml.pdf",
+	"url": "https://github.com/pawan1773/ePass/blob/master/pdf/samplePdfFromHtml.pdf",
 	"fileName": "SELF_DECLARATION.pdf",
 	"fileCategory": "SELF DECLARATION"
 }];
