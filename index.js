@@ -1,3 +1,4 @@
+/* global variable to store file type */
 var fileCategory = '';
 
 /* wait for document to get ready */
@@ -140,10 +141,10 @@ function setPreviewFile(adobeDCView, viewerConfig, previewFileConfig) {
 
 	adobeDCView.previewFile({
 		content: {
-            location: {
+			location: {
 				url: previewFileConfig.url
 			}
-        },
+		},
 		metaData: {
 			fileName: previewFileConfig.fileName
 		}
