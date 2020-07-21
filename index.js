@@ -83,8 +83,9 @@ function postEventsToGoogleAnalytics(adobeDCView) {
 		switch (e.type) {
 			case "DOCUMENT_OPEN":
 				gtag('event', 'DOCUMENT_OPEN', {
+					'event_category': 'DOCUMENT_OPEN',
 					'event_label': 'DOCUMENT_OPEN',
-					'event_label': 'DOCUMENT_OPEN'
+					'value': e.data.fileName;
 				});
 				break;
 			case 'PAGE_VIEW':
