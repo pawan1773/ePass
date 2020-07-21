@@ -1,3 +1,5 @@
+var hostname = location.hostname;
+alert(hostname);
 const FILE_CONFIG = [{
 	"url": "https://pawan1773.github.io/ePass/pdf/personal.pdf",
 	"fileName": "PERSONAL_INFORMATION.pdf",
@@ -11,7 +13,7 @@ const FILE_CONFIG = [{
 	"fileName": "MEDICAL_CERTIFICATE.pdf",
 	"fileCategory": "MEDICAL CERTIFICATE"
 }, {
-	"url": "https://pawan1773.github.io/ePass/pdf/pcc.pdf",
+	"url": hostname + "/ePass/pdf/pcc.pdf",
 	"fileName": "POLICE_CLEARANCE.pdf",
 	"fileCategory": "POLICE CLEARANCE"
 }, {
