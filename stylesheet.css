@@ -1,0 +1,21 @@
+body {
+	height: 100%;
+	font-family: 'Roboto', sans-serif;
+}
+
+.icon-pt {
+	padding-top: 2px;
+}
+
+.hidden {
+	display:none;
+}
+
+.p-size {
+	font-size:18px;
+	text-align: justify;
+}
+
+a::hover {
+	cursor: pointer;
+}
