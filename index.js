@@ -1,6 +1,6 @@
 var fileCategory = '';
 
-/* wait document to get ready */
+/* wait for document to get ready */
 $(document).ready(function () {
 	/* activate materialize side nav in mobile view */
 	$('.sidenav').sidenav();
@@ -137,12 +137,19 @@ function postEventsToGoogleAnalytics(adobeDCView) {
  * @param previewFileConfig
  */
 function setPreviewFile(adobeDCView, viewerConfig, previewFileConfig) {
+
 	adobeDCView.previewFile({
 		content: {
-			location: {
-				url: previewFileConfig.url
+            location: {
+				url: previewFileConfig.url,
+				headers: [
+                    {
+                        key: "Access-Control-Allow-Origin",
+                        value: "*",
+                    }
+                ]
 			}
-		},
+        },
 		metaData: {
 			fileName: previewFileConfig.fileName
 		}
