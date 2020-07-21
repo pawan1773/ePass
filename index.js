@@ -1,59 +1,44 @@
-/* To activate side nav and tool tip in mobile view */
-document.addEventListener('DOMContentLoaded', function () {
-	var sideNav = document.querySelectorAll('.sidenav');
-	M.Sidenav.init(sideNav, 'left');
-	toolTipped = document.querySelectorAll('.tooltipped');
-	M.Tooltip.init(toolTipped, 'right');
-});
 
-/** To handle home link clicks */
-document.querySelectorAll(".home-link").forEach((el) => {
-	el.addEventListener("click", (e) => {
-		document.querySelector("#content-container").classList.add("hidden");
-		document.querySelector("#home-container").classList.remove("hidden");
-	})
-});
-
-/** To handle content link clicks */
-document.querySelectorAll(".content-link").forEach((el) => {
-	el.addEventListener("click", (e) => {
-		document.querySelector("#home-container").classList.add("hidden");
-		document.querySelector("#content-container").classList.remove("hidden");
-	})
-});
 
 var fileCategory = '';
-/** To handle view PDF click */
-var viewPdfs = document.querySelectorAll(".view-pdf");
-viewPdfs.forEach((el) => {
-	el.addEventListener("click", (e) => {
-		document.querySelector("#home-container").classList.add("hidden");
-		document.querySelector("#content-container").classList.remove("hidden");
-		document.querySelector("#mode-btn-container").classList.remove("hidden");
-		const displayPdf = e.target;
 
-		if (displayPdf.classList.contains('emb-btn')) {
-			displayPdf.classList.add("disabled");
-			for (let sibling of displayPdf.parentNode.children) {
-				if (sibling !== displayPdf) {
-					sibling.classList.remove('disabled');
-				}
-			}
+$(document).ready(function () {
+	/* activate materialize side nav in mobile view */
+	$('.sidenav').sidenav();
+
+	/* activate materialize tooltip */
+	$('.tooltipped').tooltip();
+
+	/* handle home click in header and side nav */
+	$('.home-link').click(function () {
+		$("#home-container").show();
+		$("#content-container").hide();
+	});
+
+	/* handle content click in header and side nav */
+	$('.content-link').click(function () {
+		$("#home-container").hide();
+		$("#content-container").show();
+	});
+
+	/* handle view PDF click */
+	$(".view-pdf").click(function () {
+		$('#home-container').hide();
+		$('#content-container').show();
+		$('#mode-btn-container').show();
+
+		if ($(this).hasClass('emb-btn')) {
+			$(this).addClass('disabled');
+			$(this).siblings().removeClass('disabled');
 		} else {
-			var modesBtns = document.querySelectorAll(".emb-btn");
-			for (let modesBtn of modesBtns) {
-				if (modesBtn.getAttribute("data-embed-mode") === 'SIZED_CONTAINER') {
-					modesBtn.classList.add('disabled');
-				} else {
-					modesBtn.classList.remove('disabled');
-				}
-			}
+			$('#btn-sized').addClass('disabled').siblings().removeClass('disabled');
 		}
-		var temp = displayPdf.getAttribute("data-file-category");
-		if (!(typeof temp === 'object' && temp !== 'null') && temp !== '') {
+
+		var temp = $(this).data("file-category");
+		if (typeof temp !== 'undefined' && temp !== null && temp !== '') {
 			fileCategory = temp;
 		}
-		
+
 		var previewFileConfig = '';
 		for (var i = 0; i < FILE_CONFIG.length; i++) {
 			if (FILE_CONFIG[i].fileCategory === fileCategory) {
@@ -62,22 +47,44 @@ viewPdfs.forEach((el) => {
 			}
 		}
 
+		var embedMode = $(this).data("embed-mode");
+		var divId = '';
+		if (embedMode === 'SIZED_CONTAINER') {
+			divId = 'adobe-dc-sized-container';
+			$('#adobe-dc-sized-container').show();
+			$('#adobe-dc-sized-container').siblings().hide();
+		} else if (embedMode === 'FULL_WINDOW') {
+			divId = 'adobe-dc-full-window';
+			$('#adobe-dc-full-window').show();
+			$('#adobe-dc-full-window').siblings().hide();
+		} else {
+			divId = 'adobe-dc-in-line';
+			$('#adobe-dc-in-line').show();
+			$('#adobe-dc-in-line').siblings().hide();
+		}
+
+		/* setup viewer configurations */
 		const viewerConfig = {
 			"defaultViewMode": "FIT_PAGE",
-			"embedMode": displayPdf.getAttribute("data-embed-mode")
+			"embedMode": embedMode
 		};
 
+		/* setup client id and div to display */
 		var adobeDCView = new AdobeDC.View({
 			clientId: CLIENT_ID,
-			divId: "view-pdf-container"
+			divId: divId
 		});
 
 		setPreviewFile(adobeDCView, viewerConfig, previewFileConfig);
 		postEventsToGoogleAnalytics(adobeDCView);
-	});
+	})
 });
 
-/** To listen to file events and send it to google analytics */
+/** 
+ * To listen to file events and send it to google analytics 
+ *
+ * @param adobeDCView
+ */
 function postEventsToGoogleAnalytics(adobeDCView) {
 	adobeDCView.registerCallback(AdobeDC.View.Enum.CallbackType.EVENT_LISTENER, (e) => {
 		switch (e.type) {
@@ -123,7 +130,13 @@ function postEventsToGoogleAnalytics(adobeDCView) {
 	});
 }
 
-/** To set preview file properties */
+/** 
+ * To set preview file properties 
+ *
+ * @param adobeDCView
+ * @param viewerConfig
+ * @param previewFileConfig
+ */
 function setPreviewFile(adobeDCView, viewerConfig, previewFileConfig) {
 	adobeDCView.previewFile({
 		content: {

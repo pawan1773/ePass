@@ -20,6 +20,6 @@ const FILE_CONFIG = [{
 	"fileCategory": "SELF DECLARATION"
 }];
 
-/** client id for sdk view */
+/* client id for sdk view */
 const CLIENT_ID = "c7a56ca659ad4725b3ccacd3849b4e54";
 

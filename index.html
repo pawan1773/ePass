@@ -111,20 +111,22 @@
          <div id="mode-btn-container" class="row hidden">
             <div class="col s12">
                <ul class="right">				   
-                  <a class="view-pdf emb-btn waves-effect waves-light btn indigo" data-embed-mode="SIZED_CONTAINER">SIZED <span class="hide-on-small-and-down">CONTAINER</span></a>
-                  <a class="view-pdf emb-btn waves-effect waves-light btn indigo" data-embed-mode="FULL_WINDOW">FULL <span class="hide-on-small-and-down">WINDOW</span></a>
-                  <a class="view-pdf emb-btn waves-effect waves-light btn indigo" data-embed-mode="IN_LINE">IN LINE</a>
+                  <a id="btn-sized" class="view-pdf emb-btn waves-effect waves-light btn indigo" data-embed-mode="SIZED_CONTAINER">SIZED <span class="hide-on-small-and-down">CONTAINER</span></a>
+                  <a id="btn-full" class="view-pdf emb-btn waves-effect waves-light btn indigo" data-embed-mode="FULL_WINDOW">FULL <span class="hide-on-small-and-down">WINDOW</span></a>
+                  <a id="btn-inline" class="view-pdf emb-btn waves-effect waves-light btn indigo" data-embed-mode="IN_LINE">IN LINE</a>
                </ul>
             </div>
          </div>
          <div class="row">
-            <div class="col s12">
-               <div id="view-pdf-container" style="height:450px"></div>
+            <div class="center col s12">
+               <div id="adobe-dc-sized-container" style="height:400px"></div>
+               <div id="adobe-dc-full-window" style="height:400px"></div>
+               <div id="adobe-dc-in-line"></div>
             </div>
          </div>
       </section>
       <!-- start: Google analytics script -->
-	  <!-- update tracker id in link and config -->
+      <!-- update tracker id in link and config -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173145534-1"></script>
       <script>
          window.dataLayer = window.dataLayer || [];
