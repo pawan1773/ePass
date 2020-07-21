@@ -5,7 +5,7 @@ const FILE_CONFIG = [{
 	"fileName": "PERSONAL_INFORMATION.pdf",
 	"fileCategory": "PERSONAL INFORMATION"
 }, {
-	"url": domain + "/ePass/pdf/vehile.pdf",
+	"url": domain + "/ePass/pdf/vehicle.pdf",
 	"fileName": "VEHICLE_DETAILS.pdf",
 	"fileCategory": "VEHICLE DETAILS"
 }, {
