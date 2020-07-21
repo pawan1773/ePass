@@ -1,7 +1,6 @@
-
-
 var fileCategory = '';
 
+/* wait document to get ready */
 $(document).ready(function () {
 	/* activate materialize side nav in mobile view */
 	$('.sidenav').sidenav();
