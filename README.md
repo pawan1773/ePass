@@ -12,7 +12,7 @@
 * Run using any local server by replacing with your own clientid(config.js)
 * Set your tracking id in index.html gtag script to track events using Google analytics
 
-# Demo and applications links
+## Demo and applications links
 
 * For demo video, please check: https://pawan1773.github.io/ePass/
 * For application demo, please check: https://pawan1773.github.io/ePass/
