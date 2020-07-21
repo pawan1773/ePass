@@ -81,11 +81,10 @@ viewPdfs.forEach((el) => {
 function postEventsToGoogleAnalytics(adobeDCView) {
 	adobeDCView.registerCallback(AdobeDC.View.Enum.CallbackType.EVENT_LISTENER, (e) => {
 		switch (e.type) {
-			case "DOCUMENT_OPEN":
+			case 'DOCUMENT_OPEN':
 				gtag('event', 'DOCUMENT_OPEN', {
 					'event_category': 'DOCUMENT_OPEN',
-					'event_label': 'DOCUMENT_OPEN',
-					'value': e.data.fileName
+					'event_label': 'DOCUMENT_OPEN'
 				});
 				break;
 			case 'PAGE_VIEW':
