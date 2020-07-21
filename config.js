@@ -20,5 +20,5 @@ const FILE_CONFIG = [{
 	"fileCategory": "SELF DECLARATION"
 }];
 
-const CLIENT_ID = "a1648e3fdc99492d88bb309c70832c4c";
+const CLIENT_ID = "c7a56ca659ad4725b3ccacd3849b4e54";
 
