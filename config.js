@@ -1,4 +1,4 @@
-/* change suffix if you are placing file in some other directory */
+/* change suffix if you are placing pdf files in some other directory */
 const domain = 'https://' + location.hostname + '/ePass/pdf/';
 
 const FILE_CONFIG = [{
