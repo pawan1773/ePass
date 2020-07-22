@@ -1,23 +1,24 @@
-const domain = 'https://' + location.hostname;
+/* change suffix if you are placing file in some other directory */
+const domain = 'https://' + location.hostname + '/ePass/pdf/';
 
 const FILE_CONFIG = [{
-	"url": domain + "/ePass/pdf/personal.pdf",
+	"url": domain + "personal.pdf",
 	"fileName": "PERSONAL_INFORMATION.pdf",
 	"fileCategory": "PERSONAL INFORMATION"
 }, {
-	"url": domain + "/ePass/pdf/vehicle.pdf",
+	"url": domain + "vehicle.pdf",
 	"fileName": "VEHICLE_DETAILS.pdf",
 	"fileCategory": "VEHICLE DETAILS"
 }, {
-	"url": domain + "/ePass/pdf/medical.pdf",
+	"url": domain + "medical.pdf",
 	"fileName": "MEDICAL_CERTIFICATE.pdf",
 	"fileCategory": "MEDICAL CERTIFICATE"
 }, {
-	"url": domain + "/ePass/pdf/pcc.pdf",
+	"url": domain + "pcc.pdf",
 	"fileName": "POLICE_CLEARANCE.pdf",
 	"fileCategory": "POLICE CLEARANCE"
 }, {
-	"url": domain + "/ePass/pdf/declaration.pdf",
+	"url": domain + "declaration.pdf",
 	"fileName": "SELF_DECLARATION.pdf",
 	"fileCategory": "SELF DECLARATION"
 }];
