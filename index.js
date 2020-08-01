@@ -66,7 +66,8 @@ $(document).ready(function () {
 		/* setup viewer configurations */
 		const viewerConfig = {
 			"defaultViewMode": "FIT_PAGE",
-			"embedMode": embedMode
+			"embedMode": embedMode,
+			"enableAnnotationAPIs": true
 		};
 
 		/* setup client id and div to display */
@@ -89,13 +90,13 @@ function postEventsToGoogleAnalytics(adobeDCView) {
 	adobeDCView.registerCallback(AdobeDC.View.Enum.CallbackType.EVENT_LISTENER, (e) => {
 		switch (e.type) {
 			case 'DOCUMENT_OPEN':
-				gtag('event', 'DOCUMENT_OPEN', {
+				gtag('event', e.data.fileName + ' opened.', {
 					'event_category': 'DOCUMENT_OPEN',
 					'event_label': 'DOCUMENT_OPEN'
 				});
 				break;
 			case 'PAGE_VIEW':
-				gtag('event', 'PAGE_VIEW', {
+				gtag('event', e.data.pageNumber + ' of ' + e.data.fileName + ' viewed.', {
 					'event_category': 'PAGE_VIEW',
 					'event_label': 'PAGE_VIEW'
 				});
@@ -146,7 +147,8 @@ function setPreviewFile(adobeDCView, viewerConfig, previewFileConfig) {
 			}
 		},
 		metaData: {
-			fileName: previewFileConfig.fileName
+			fileName: previewFileConfig.fileName,
+			id: previewFileConfig.id
 		}
 	}, viewerConfig);
 }
